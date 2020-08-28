@@ -1,0 +1,16 @@
+{
+  "name": "js_to_html",
+  "version": "1.0.0",
+  "description": "This package will help you to create or delete a html file which carries js file you have added or deleted.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucky (https://github.com/Lucky3028/)",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "chokidar": "^3.4.2",
+    "colors": "^1.4.0"
+  }
+}
