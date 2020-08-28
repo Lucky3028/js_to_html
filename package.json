@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lucky (https://github.com/Lucky3028/)",
-  "license": "MIT",
+  "license": "GPLv3",
   "devDependencies": {},
   "dependencies": {
     "chokidar": "^3.4.2",
