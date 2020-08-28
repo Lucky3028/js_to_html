@@ -5,6 +5,10 @@ This package will help you to create or delete a html file which carries js file
 
 山田祥寛,「改訂新版JavaScript本格入門 ~モダンスタイルによる基礎から現場での応用まで」, 2016年, 技術評論社. を読むために、JSファイルを作りながらなので、これを実行するhtmlを自動生成する。
 
+## Requirement
+
+Node.js
+
 ## Reference
 
 * 「node.jsでファイルの変更を検出して何かする」https://qiita.com/zaburo/items/0280807fe5e59026e41b
