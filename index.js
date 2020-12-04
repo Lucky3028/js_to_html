@@ -1,6 +1,5 @@
 // ファイルの変更通知をしてくれるモジュール
 const chokidar = require("chokidar");
-const { NOTFOUND } = require("dns");
 // ファイルシステムモジュール
 const fs = require('fs');
 // 色を付けるためのモジュール
