@@ -43,18 +43,16 @@ watcher.on('ready',function(){
 
     console.log(`[${getDate()}] Ready watching...`);
 
-    // ファイルが追加されたら
+    // jsファイルが追加されたら
     watcher.on('add',function(path){
       if (!isJavaScriptFile(path)) return;
 
       const dest = generateHtmlFileName(path);
 
-      // 追加されたjsと同じファイル名でsrcのhtmlのコピーを作成
-      fs.copyFileSync(SRC_HTML, dest, (err) => {
-        if (err) throw err;
-      });
+      // SRC_HTMLに指定されたhtmlのコピーを作成し（すでに存在するなら上書き）、追加されたjsと同じファイル名にリネーム
+      fs.copyFileSync(SRC_HTML, dest);
 
-      // htmlの中で指定されているjsのファイル名を追加されたjsと同じファイル名で書き換え。すでに存在するなら上書き
+      // html構造で指定されているjsを、追加されたjsに変更
       let html = fs.readFileSync(dest, 'UTF-8');
       html = html.replace('scripts/template.js', path);
       fs.writeFileSync(dest, html);
@@ -62,7 +60,7 @@ watcher.on('ready',function(){
       console.log(`[${getDate()}] '${dest.cyan}' added.`);
     });
 
-    // ファイルが削除されたら
+    // jsファイルが削除されたら
     watcher.on('unlink', function (path) {
       if (!isJavaScriptFile(path)) return;
 
