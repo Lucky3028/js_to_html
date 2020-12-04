@@ -65,7 +65,7 @@ watcher.on('ready',function(){
         console.log(`[${getDate()}] '${dest.cyan}' removed.`);
       } catch (err) {
         if (err.code === 'ENOENT') {
-          console.error(`[${getDate()}] '${path.cyan}' was deleted, but '${dest.cyan}' was not found.`)
+          console.error(`[${getDate()}] '${path.cyan}' was removed, but '${dest.cyan}' was not found.`)
         }
       }
   });
