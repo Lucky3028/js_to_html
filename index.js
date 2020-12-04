@@ -11,7 +11,7 @@ const watcher = chokidar.watch('./scripts/',{
   persistent: true
 });
 
-// コピーする元のhtml
+// コピーする元のhtmlファイル名
 const SRC_HTML = 'template.html';
 
 // HH:MM:SS のかたちで現在時刻を取得。1桁の場合0埋め
@@ -29,6 +29,15 @@ function getFileName(path) {
   return splittedPath[splittedPath.length - 1].replace('.js', "");
 }
 
+function isJavaScriptFile(path) {
+  return path.includes('.js')
+}
+
+// pathを受け取り、ファイル名と同じ名前のhtmlファイルを作成する
+function generateHtmlFileName(path) {
+  return `${getFileName(path)}.html`
+}
+
 // イベント定義
 watcher.on('ready',function(){
 
@@ -36,9 +45,9 @@ watcher.on('ready',function(){
 
     // ファイルが追加されたら
     watcher.on('add',function(path){
-      if (!path.includes('.js')) return;
+      if (!isJavaScriptFile(path)) return;
 
-      const dest = `${getFileName(path)}.html`;
+      const dest = generateHtmlFileName(path);
 
       // 追加されたjsと同じファイル名でsrcのhtmlのコピーを作成
       fs.copyFileSync(SRC_HTML, dest, (err) => {
@@ -55,9 +64,9 @@ watcher.on('ready',function(){
 
     // ファイルが削除されたら
     watcher.on('unlink', function (path) {
-      if (!path.includes('.js')) return;
+      if (!isJavaScriptFile(path)) return;
 
-      const dest = `${getFileName(path)}.html`;
+      const dest = generateHtmlFileName(path);
 
       try {
         // 同名のhtmlを削除
