@@ -6,6 +6,7 @@
 
 // ファイルの変更通知をしてくれるモジュール
 const chokidar = require("chokidar");
+const { NOTFOUND } = require("dns");
 // ファイルシステムモジュール
 const fs = require('fs');
 // 色を付けるためのモジュール
@@ -70,11 +71,7 @@ watcher.on('ready',function(){
         fs.unlinkSync(dest);
         console.log(`[${getDate()}] '${dest.cyan}' removed.`);
       } catch (err) {
-        if (err.toString().includes('Error: ENOENT: no such file or directory,')) {
-          console.error(`[${getDate()}] '${path.cyan}' was deleted, but '${dest.cyan}' was not found.`)
-        } else {
-          console.error(`[${getDate()}] ${err.toString()}`);
-        }
+        console.error(`[${getDate()}] ${err.toString()}`);
       }
   });
 });
