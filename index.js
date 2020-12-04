@@ -12,7 +12,7 @@ const watcher = chokidar.watch('./scripts/',{
 });
 
 // コピーする元のhtml
-const src = 'template.html';
+const SRC_HTML = 'template.html';
 
 // HH:MM:SS のかたちで現在時刻を取得。1桁の場合0埋め
 function getDate() {
@@ -41,7 +41,7 @@ watcher.on('ready',function(){
       const dest = `${getFileName(path)}.html`;
 
       // 追加されたjsと同じファイル名でsrcのhtmlのコピーを作成
-      fs.copyFileSync(src, dest, (err) => {
+      fs.copyFileSync(SRC_HTML, dest, (err) => {
         if (err) throw err;
       });
 
