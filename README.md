@@ -1,6 +1,6 @@
 # js_to_html
 
-This package will help you to create or delete a html file which carries js file you have added or deleted.
+This repository will help you to create or delete a html file which carries js file you have added or deleted.
 
 ## Description
 
