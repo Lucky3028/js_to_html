@@ -64,7 +64,9 @@ watcher.on('ready',function(){
         fs.unlinkSync(dest);
         console.log(`[${getDate()}] '${dest.cyan}' removed.`);
       } catch (err) {
-        console.error(`[${getDate()}] ${err.toString()}`);
+        if (err.code === 'ENOENT') {
+          console.error(`[${getDate()}] '${path.cyan}' was deleted, but '${dest.cyan}' was not found.`)
+        }
       }
   });
 });
