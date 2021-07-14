@@ -4,7 +4,7 @@ This repository will help you to create or delete a html file which carries js f
 
 ## Description
 
-山田祥寛,「改訂新版JavaScript本格入門 ~モダンスタイルによる基礎から現場での応用まで」, 2016年, 技術評論社. を読むために、JSファイルを作りながらになるので、これを実行するhtmlを自動生成する。
+山田祥寛,「改訂新版JavaScript本格入門 ~モダンスタイルによる基礎から現場での応用まで」, 2016年, 技術評論社. を読むにあたって、JSファイルを作りながら読む必要があるので、これを実行するhtmlを自動生成する。
 
 ## Requirement
 
